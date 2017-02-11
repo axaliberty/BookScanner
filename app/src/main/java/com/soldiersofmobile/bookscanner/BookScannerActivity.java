@@ -52,6 +52,13 @@ public class BookScannerActivity extends AppCompatActivity {
         isbnEditText.setText("9780132350884"); //TODO remove me, only for tests
     }
 
+
+    @OnClick(R.id.get_book_details_button)
+    public void onClick() {
+
+        getDetails();
+    }
+
     public void getDetails() {
 
         String query = "isbn:" + isbnEditText.getText().toString();
@@ -69,9 +76,9 @@ public class BookScannerActivity extends AppCompatActivity {
 
                         //send VolumeInfo to the BookDetailsActivity
                         //TODO create activity and uncomment this code
-                        //Intent intent = new Intent(BookScannerActivity.this, BookDetailsActivity.class);
-                        //intent.putExtra(VOLUME_INFO_EXTRA, volumeInfo);
-                        //startActivity(intent);
+                        Intent intent = new Intent(BookScannerActivity.this, BookDetailsActivity.class);
+                        intent.putExtra(VOLUME_INFO_EXTRA, volumeInfo);
+                        startActivity(intent);
                     }
                 }
             }
